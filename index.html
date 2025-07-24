@@ -3,34 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Niloy Das | Personal Website</title>
+  <title>Your Name | Personal Website</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      line-height: 1.6;
+      background: #f7f7f7;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
     }
+
     header {
       background-color: #333;
       color: #fff;
-      padding: 2rem;
+      padding: 1.5rem;
       text-align: center;
     }
-    main {
-      padding: 2rem;
-      max-width: 800px;
+
+    nav {
+      background-color: #444;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    nav button:hover, nav button.active {
+      background-color: #666;
+    }
+
+    .tab-content {
+      display: none;
+      max-width: 900px;
       margin: auto;
-      background: white;
+      background: #fff;
+      padding: 2rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    h1, h2 {
+
+    .tab-content.active {
+      display: block;
+    }
+
+    h2 {
       color: #333;
     }
-    .project {
-      margin-bottom: 1.5rem;
-    }
+
     footer {
       text-align: center;
       padding: 1rem;
@@ -42,45 +67,68 @@
 <body>
 
   <header>
-    <h1>Name</h1>
-    <p>Welcome to my personal website!</p>
+    <h1>Your Name</h1>
+    <p>Welcome to my personal academic & professional website</p>
   </header>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I'm a [Your Profession or Role], passionate about [Your Interests]. 
-        I enjoy building things, learning new technologies, and working on meaningful projects.
-      </p>
-    </section>
+  <nav>
+    <button class="tab-button active" onclick="showTab('personal')">Personal Info</button>
+    <button class="tab-button" onclick="showTab('publications')">Publications</button>
+    <button class="tab-button" onclick="showTab('projects')">Projects</button>
+    <button class="tab-button" onclick="showTab('achievements')">Achievements</button>
+    <button class="tab-button" onclick="showTab('experience')">Experience</button>
+  </nav>
 
-    <section id="projects">
-      <h2>Projects</h2>
+  <section id="personal" class="tab-content active">
+    <h2>Personal Information</h2>
+    <p>This is your personal background. You can include education, contact, a short bio, etc.</p>
+  </section>
 
-      <div class="project">
-        <h3>Project One</h3>
-        <p>
-          A brief description of your project. What it does, why it's cool, or what technologies you used.
-          <br/>
-          <a href="https://github.com/yourusername/project1" target="_blank">View on GitHub</a>
-        </p>
-      </div>
+  <section id="publications" class="tab-content">
+    <h2>Publications</h2>
+    <ul>
+      <li>Author1, Author2. "Title of Paper." *Journal Name*, 2024.</li>
+      <li>Author1, Author2. "Title of Another Paper." *Conference Name*, 2023.</li>
+    </ul>
+  </section>
 
-      <div class="project">
-        <h3>Project Two</h3>
-        <p>
-          Another short description for a different project.
-          <br/>
-          <a href="https://github.com/yourusername/project2" target="_blank">View on GitHub</a>
-        </p>
-      </div>
-    </section>
-  </main>
+  <section id="projects" class="tab-content">
+    <h2>Projects</h2>
+    <p>Details about your major projects with GitHub links or descriptions.</p>
+  </section>
+
+  <section id="achievements" class="tab-content">
+    <h2>Achievements</h2>
+    <ul>
+      <li>Award or scholarship</li>
+      <li>Competition winner</li>
+      <li>Key milestone or recognition</li>
+    </ul>
+  </section>
+
+  <section id="experience" class="tab-content">
+    <h2>Professional Experience</h2>
+    <ul>
+      <li><strong>Job Title</strong>, Company Name (Year–Year)</li>
+      <li><strong>Internship</strong>, Organization (Year)</li>
+    </ul>
+  </section>
 
   <footer>
     &copy; 2025 Your Name
   </footer>
+
+  <script>
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-button');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
